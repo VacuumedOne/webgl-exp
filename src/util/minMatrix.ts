@@ -80,7 +80,7 @@ class mat4 {
 		let sq = Math.sqrt(axis[0] * axis[0] + axis[1] * axis[1] + axis[2] * axis[2]);
 		if(!sq){return null;}
 		let a = axis[0], b = axis[1], c = axis[2];
-		if(sq != 1){sq = 1 / sq; a *= sq; b *= sq; c *= sq;}
+		if(sq !== 1){sq = 1 / sq; a *= sq; b *= sq; c *= sq;}
 		let d = Math.sin(angle), e = Math.cos(angle), f = 1 - e,
 			g = mat[0],  h = mat[1], i = mat[2],  j = mat[3],
 			k = mat[4],  l = mat[5], m = mat[6],  n = mat[7],
@@ -95,7 +95,7 @@ class mat4 {
 			z = b * c * f - a * d,
 			A = c * c * f + e;
 		if(angle){
-			if(mat != dest){
+			if(mat !== dest){
 				dest[12] = mat[12]; dest[13] = mat[13];
 				dest[14] = mat[14]; dest[15] = mat[15];
 			}
@@ -121,7 +121,7 @@ class mat4 {
 		let eyeX    = eye[0],    eyeY    = eye[1],    eyeZ    = eye[2],
 			upX     = up[0],     upY     = up[1],     upZ     = up[2],
 			centerX = center[0], centerY = center[1], centerZ = center[2];
-		if(eyeX == centerX && eyeY == centerY && eyeZ == centerZ){return mat4.identity();}
+		if(eyeX === centerX && eyeY === centerY && eyeZ === centerZ){return mat4.identity();}
 		var x0, x1, x2, y0, y1, y2, z0, z1, z2, l;
 		z0 = eyeX - center[0]; z1 = eyeY - center[1]; z2 = eyeZ - center[2];
 		l = 1 / Math.sqrt(z0 * z0 + z1 * z1 + z2 * z2);
